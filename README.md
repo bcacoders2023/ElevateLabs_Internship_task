@@ -1,103 +1,156 @@
-
 # 🧹 Task 1: Data Cleaning and Preprocessing
+
 ## 📌 Objective
 Clean and prepare a raw dataset by handling:
 - Missing values
 - Duplicate records
 - Inconsistent formatting and data type
-## 🛠️ Tools Used
 
+## 🛠️ Tools Used
 - **Python (Pandas)**  
 - **Microsoft Excel**
 
 ## 📁 Deliverables
-
 - A **cleaned dataset**
 - A **short summary of changes** made during the cleaning process
 
+## 📊 Steps Followed
 
-## 🧠 Hints / Mini Guide
+1. **Handled Missing Values**  
+   - Used `.isnull()` to detect missing values  
+   - Used `.fillna()` to replace missing values with median/mean where appropriate
 
-To complete this task, follow these common data cleaning steps:
+2. **Removed Duplicates**  
+   - Used `.drop_duplicates()` to remove repeated records
 
-1. **Handle Missing Values**  
-   Use `.isnull()` in Pandas or filters in Excel to identify and handle missing data.
+3. **Standardized Text Values**  
+   - Converted all text to lowercase  
+   - Trimmed leading/trailing whitespaces
 
-2. **Remove Duplicates**  
+4. **Converted Date Formats**  
+   - Used `pd.to_datetime()` to ensure consistent `dd-mm-yyyy` format
+
+5. **Cleaned Column Headers**  
+   - Renamed columns to lowercase and removed special characters
+
+6. **Corrected Data Types**  
+   - Converted numerical and date columns to proper data types using `astype()` and `pd.to_datetime()`
+
+---
+
+## ❓ Interview Q&A
+
+1. **What are missing values and how do you handle them?**  
+   Use `.isnull()` to find them. Use `.dropna()` to remove or `.fillna()` to replace them with average, median, etc.
+
+2. **How do you treat duplicate records?**  
    Use `.drop_duplicates()` in Pandas or the "Remove Duplicates" feature in Excel.
 
-3. **Standardize Text Values**  
-   Clean columns like gender, country names, etc., to ensure consistency.
+3. **Difference between dropna() and fillna()?**  
+   - `dropna()` removes missing data.  
+   - `fillna()` fills missing data with a specified value.
 
-4. **Convert Date Formats**  
-   Ensure all date columns use a consistent format like `dd-mm-yyyy`.
+4. **What is outlier treatment and why is it important?**  
+   It removes extreme values that affect analysis. Use IQR, z-score, or capping methods.
 
-5. **Clean Column Headers**  
-   Rename columns to be lowercase, with no spaces or special characters.
+5. **Explain the process of standardizing data.**  
+   Format text consistently, fix date formats, and normalize categories.
 
-6. **Correct Data Types**  
-   Make sure each column has the correct data type (e.g., age → `int`, dates → `datetime`).
+6. **How do you handle inconsistent data formats (e.g., date/time)?**  
+   Use `pd.to_datetime()` in Python to convert to a uniform format.
+
+7. **Common data cleaning challenges?**  
+   - Inconsistent formatting  
+   - Missing/duplicate data  
+   - Wrong data types  
+   - Outliers
+
+8. **How do you check data quality?**  
+   - Use `.info()` and `.describe()`  
+   - Visualize with heatmaps  
+   - Check unique values and valid ranges
+
+---
+
+# 📊 Task 2: Power BI Data Visualization and Storytelling
+
+## 📌 Objective
+Create visualizations using the **Sample Superstore** dataset to find and present key insights for better business decision-making.
+
+## 🔧 Tools Used
+- Power BI Desktop
+- Sample Superstore Dataset (CSV)
+
+## 📁 Dataset Description
+Key columns include:
+- Order Date
+- Sales
+- Profit
+- Discount
+- Category / Sub-Category
+- Segment
+- Region
+- Customer Name
+
+---
+
+## 📈 Visualizations Created
+
+### 1. **Profit vs Discount Analysis**
+- **Chart:** Scatter Plot  
+- **X-axis:** Discount  
+- **Y-axis:** Profit  
+- **Details:** Sub-Category  
+- **Insight:** High discounts often lead to lower or negative profits.
+
+### 2. **Sales by Segment and Region**
+- **Chart:** Stacked Bar / TreeMap  
+- **Group:** Segment and Region  
+- **Values:** Sales  
+- **Insight:** Consumer segment dominates across most regions.
+
+### 3. **Monthly Sales Trend**
+- **Chart:** Line Chart  
+- **Axis:** Order Date (Month/Year)  
+- **Values:** Sales  
+- **Insight:** Sales increase during year-end, showing seasonal peaks.
+
+### 4. **Category-wise Sales and Profit**
+- **Chart:** Bar Chart  
+- **Axis:** Category / Sub-Category  
+- **Values:** Sales & Profit  
+- **Insight:** Technology has the highest profit margin; Furniture often has low profit.
+
+---
+
+## 🎯 Key Business Insights
+- Excessive discounts hurt profit.
+- The Consumer segment performs best across all regions.
+- November and December show the highest sales.
+- Technology category contributes most to overall profit.
+
+---
+
+## 📎 Deliverables
+- Power BI Dashboard (PBIX file or screenshots)
+- Cleaned Superstore dataset
+- PDF summary report
+- This README file
+
+---
+
+## 🧠 Outcome
+- Gained hands-on experience with real-world data cleaning.
+- Built interactive dashboards using Power BI.
+- Learned to draw business insights from visuals.
+- Improved storytelling skills using charts and graphs.
+![image](https://github.com/user-attachments/assets/b6519b5e-640f-49ae-ae73-686f9badecd5)
+![image](https://github.com/user-attachments/assets/83f733e1-347d-4e8e-bd3f-3c3ef2b4c8eb)
+![image](https://github.com/user-attachments/assets/12ea28a0-d459-4b19-aa55-7d11124134c2)
 
 
-## 📊 Recommended Datasets from Kaggle
 
-Choose any of the following for this task:
-
-- Customer Personality Analysis  
-- Medical Appointment No Shows  
-- Mall Customer Segmentation Data  
-- Netflix Movies and TV Shows  
-- Sales Data
-
-## 🎯 Learning Outcomes
-
-By completing this task, you will:
-
-- Gain practical experience identifying and fixing real-world data issues.
-- Learn data cleaning using both Excel and Python.
-- Improve your understanding of data preprocessing, a critical step before analysis or modeling.
-- Build confidence in handling raw, unstructured data independently.
-- Prepare a clean, structured dataset ready for visualization or predictive analytics.
-
-
-## ❓ Interview Questions and Answers
-
-**1. What are missing values and how do you handle them?**  
-Missing values are entries where data is not available. In Pandas, we use `.isnull()` to detect and `dropna()` or `fillna()` to handle them.  
-- **dropna()** removes missing rows.  
-- **fillna()** replaces missing values with a specified value (mean, median, etc.).
-
-**2. How do you treat duplicate records?**  
-We use `.drop_duplicates()` in Pandas or “Remove Duplicates” in Excel to identify and remove duplicated rows, which can distort the accuracy of the dataset.
-
-**3. Difference between dropna() and fillna() in Pandas?**  
-- `dropna()` removes rows or columns with null values.  
-- `fillna()` fills missing values with a specific value, such as mean, median, mode, or forward/backward fill.
-
-**4. What is outlier treatment and why is it important?**  
-Outlier treatment involves identifying and handling values that deviate significantly from other observations. It’s important because outliers can skew analysis and lead to misleading results. Methods include z-score, IQR, or capping techniques.
-
-**5. Explain the process of standardizing data.**  
-Standardization means converting data into a consistent format. For example:
-- Making all text lowercase
-- Removing leading/trailing spaces
-- Standardizing date formats
-- Normalizing category labels (e.g., "Male", "male", "M" → "male")
-
-**6. How do you handle inconsistent data formats (e.g., date/time)?**  
-Use Pandas’ `pd.to_datetime()` to convert all date fields to a consistent format. It ensures uniformity and enables proper sorting and filtering.
-
-**7. What are common data cleaning challenges?**  
-- Missing or inconsistent data
-- Duplicate entries
-- Outliers
-- Mixed data types
-- Inconsistent labeling (e.g., “USA” vs. “U.S.A.”)
-- Hidden formatting issues (extra spaces, invisible characters)
-
-**8. How can you check data quality?**  
-- Use `.info()` and `.describe()` to explore data types and summary statistics.  
-- Visualize missing data with heatmaps (using Seaborn or missingno).  
-- Validate ranges and values for numerical data.  
-- Check unique values for categorical features.
-
+## 👤 Author
+**Yogesh Kumar Soni**  
+BCA Student | Data Analyst Trainee  
+🌐 [Portfolio Website](https://yogeshkumarsonicom.netlify.app/)
